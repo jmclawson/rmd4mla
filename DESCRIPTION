@@ -1,12 +1,11 @@
 Package: rmd4mla
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Produce MLA-Style Documents with R Markdown
+Version: 0.1
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+    person("James", "Clawson", , "clawson@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: For preparing MLA-formatted documents, this package provides knitr functions, user-facing R Markdown templates, and packaged templates in Latex and Open Document files. Using make4ht and tex4ht, it also provides a fuction for simple conversion to the Open Document standard, which allows for preparation of Microsoft Word files using Biblatex.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
