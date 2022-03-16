@@ -19,7 +19,7 @@ Bundling together templates and common defaults, the `rmd4mla` package is design
 
 ### Exporting to Microsoft Word
 
-A fourth output format is available using the `knit: rmd4mla::create_odt` parameter in the YAML header. This option will prepare a file in the OpenDocument `.odt` file format, which can be opened by Microsoft Word. The resulting file will lack running headers and page numbers, so you'll have to add these manually. The resulting `.odt` file seems strangely formed, so please open it using LibreOffice, ignoring your computer's prompt to open it in Microsoft Word. From LibreOffice, it can be exported it as a `.docx` file.
+A fourth output format is available using the `knit: rmd4mla::create_odt` parameter in the YAML header. This option will prepare a file in the OpenDocument `.odt` file format, which can be opened by Microsoft Word. The resulting file will lack running headers and page numbers, so you'll have to add these manually. This `.odt` file also seems strangely formed, so please open it using LibreOffice, ignoring your computer's prompt to open it in Microsoft Word. From LibreOffice, it can be exported it as a `.docx` file.
 
 When working with a file called `example.rmd`, the typical behavior of `create_odt` will be to delete nearly every file in the project folder named `example.XXX` if it has a modification date later than the R Markdown file. To keep all of these, instead use `create_odt_keep`.
 
