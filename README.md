@@ -2,7 +2,11 @@
 R Markdown templates for MLA-formatted .odt output
 
 ## Installation
-use `remotes::install_github("jmclawson/rmd4mla")` to install the R Markdown template file.
+Use `remotes::install_github("jmclawson/rmd4mla")` to install the R Markdown template file.
+
+In addition to `R`, `rmarkdown`, `knitr`, `tibble`, `dplyr`, and `remotes`, you'll need to have a working setup of `LaTex`, and it'll probably need to be more full-featured than `TinyTex`. Find something that includes `tex4ht`, `make4ht`, `biblatex`, and [`biblatex-mla`](https://ctan.org/pkg/biblatex-mla?lang=en). The package was developed and tested using an installation of [TexLive 2021](https://www.tug.org/texlive/), along with most recent updates available in late February 2022. It might be necessary to manually change one `make4ht` file for preprocessing `.rmd` files for output as `.odt`, since this change may not have been distributed to the CTAN network; see the [February 28th commit](https://github.com/michal-h21/make4ht/commit/a7ed9e73948ce8fd9749e94bd84a7607cca07f9c) for details.
+
+Once these are set up, please cross your fingers and proceed. Things work well on my Mac, but something will certainly go wrong on another system. The functions calling `make4ht` are particularly fragile: they pull together a simple bash command and send it to the system terminal. Who knows whether this will work on Windows, or indeed anywhere outside the limited test environment?
 
 ## Description
 Bundling together templates and common defaults, the `rmd4mla` package is designed to make it easy to use R Markdown for preparing MLA-formatted documents. For a quick start, three R Markdown templates are provided for use with R Studio's "New File" > "R Markdown..." wizard.
