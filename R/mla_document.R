@@ -27,7 +27,7 @@ word_document <- function(){
 
 #' mla_document
 #'
-#' Main function for converting R Markdown documents into various formats using something close to MLA style.
+#' Main function for converting R Markdown documents into various file formats using something close to MLA-style layout.
 #'
 #' @export
 
@@ -63,6 +63,49 @@ mla_document <- function(format="pdf") {
     rmarkdown::latex_document(
       template = find_resource("mla",
                                "template.tex"),
+      citation_package = "biblatex"
+    )
+  }
+}
+
+#' chicago_document
+#'
+#' Main function for converting R Markdown documents into various file formats using something close to MLA-style layout and Chicago-style citations.
+#'
+#' @export
+
+chicago_document <- function(format="pdf") {
+  # locations of resource files in the package
+  pkg_file <- function(...) system.file(..., package = "rmd4mla")
+  
+  pkg_file_template <- function(...) pkg_file("rmarkdown", "templates", ...)
+  
+  find_resource <- function(template, file = 'template.tex') {
+    res <- pkg_file_template(template, "resources", file)
+    if (res == "") stop(
+      "Couldn't find template file ", template, "/resources/", file, call. = FALSE
+    )
+    res
+  }
+  
+  # call the base x_document function
+  if (format == "pdf") {
+    rmarkdown::pdf_document(
+      template = find_resource("mla",
+                               "chitemplate.tex"),
+      keep_tex = TRUE,
+      citation_package = "biblatex"
+    )
+  } else if (format == "doc") {
+    rmarkdown::word_document(
+      reference_docx = find_resource("mla", "template.docx"),
+      number_sections = TRUE,
+      df_print = "kable"
+    )
+  } else {
+    rmarkdown::latex_document(
+      template = find_resource("mla",
+                               "chitemplate.tex"),
       citation_package = "biblatex"
     )
   }

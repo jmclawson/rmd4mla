@@ -7,5 +7,5 @@
 mla_document(format = "pdf")
 }
 \description{
-Main function for converting R Markdown documents into various formats using something close to MLA style.
+Main function for converting R Markdown documents into various file formats using something close to MLA-style layout.
 }

@@ -7,5 +7,5 @@
 create_odt_keep(input, ...)
 }
 \description{
-A variation of send2odt that doesn't clean extra files, which may be useful for troubleshooting.
+A variation of create_odt that doesn't clean extra files, which may be useful for troubleshooting.
 }
