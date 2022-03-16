@@ -52,7 +52,10 @@ class: English 101
 ```
 
 The header of the resulting document will be styled like this:
-![an image of the top of a PDF document prepared using rmd4mla](https://jmclawson.net/rmd4mla_header.png)
+
+<kbd>
+  <img src="https://jmclawson.net/rmd4mla_header.png", alt="an image of the top of a PDF document prepared using rmd4mla">
+</kbd>
 
 
 To convert to `.odt`, uncomment the final line by removing both the octothorpe and the space (`# `).
