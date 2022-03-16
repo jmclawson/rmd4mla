@@ -33,3 +33,21 @@ In addition to setting the document's title, author, date, and bibliography, the
 - `email` and `telephone` may also be useful for submitting manuscripts.
 - `titlepage` is a logical toggle for shifting the first-page header to a title page.
 - `anonymous` is a logical toggle for adding a title page and changing the running header to use the title.
+
+Here's an example of some of the parameters in action:
+
+```
+---
+title: Galatea and Spain's Rainy Plains
+author: Londyn Britches
+date: 16 March 2022
+output: rmd4mla::mla_document
+bibliography: sources.bib
+lastname: Britches
+professor: Dr. Falon Downe
+class: English 101
+# knit: rmd4mla::create_odt
+---
+```
+
+To convert to `.odt`, uncomment the final line (remove the `#` and space before `knit:`) and knit the document.
