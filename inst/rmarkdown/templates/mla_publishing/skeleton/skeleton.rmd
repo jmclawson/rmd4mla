@@ -1,0 +1,19 @@
+---
+title: "MLA Article"
+author: ""
+date: "`r gsub('^0', '', format(Sys.time(), '%d %B %Y'))`"
+output: rmd2mla::mla_document
+bibliography: 
+anonymous: true
+postal: ""
+email: ""
+telephone: ""
+# knit: rmd2mla::create_odt
+---
+
+# Header 1
+
+Begin here.
+
+
+

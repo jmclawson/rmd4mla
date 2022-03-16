@@ -1,6 +1,0 @@
-name: MLA Document
-description: >
-  Template for typesetting standard documents
-  in MLA format. This template will also set
-  common defaults for using biblatex-mla.
-create_dir: false

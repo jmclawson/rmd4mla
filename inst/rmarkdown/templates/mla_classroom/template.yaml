@@ -1,0 +1,7 @@
+name: MLA Class Paper
+description: >
+  Template for typesetting standard papers
+  for a class using MLA format. This
+  template will also set common defaults
+  for using biblatex-mla.
+create_dir: false

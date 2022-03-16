@@ -1,0 +1,12 @@
+name: MLA Options
+description: >
+  Template showing all of the options
+  made available in the YAML header for
+  creating documents as close to MLA
+  format as possible. The document also
+  includes some tips for preparing a
+  document in R Markdown, and it points
+  out shortcomings that need to be
+  addressed after exporting to Microsoft
+  Word.
+create_dir: true

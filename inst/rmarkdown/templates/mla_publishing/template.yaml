@@ -1,0 +1,8 @@
+name: MLA Publishing
+description: >
+  Template for typesetting documents for
+  submission to publishers in MLA format,
+  whether anonymous or named. This template
+  will also set common defaults for using
+  biblatex-mla.
+create_dir: false
