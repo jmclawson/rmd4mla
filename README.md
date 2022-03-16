@@ -12,11 +12,13 @@ Once these are set up, cross your fingers and proceed. Things work well on my Ma
 Bundling together templates and common defaults, the `rmd4mla` package is designed to make it easy to use R Markdown for preparing MLA-formatted documents. For a quick start, R Markdown templates are provided for use with R Studio's "New File" > "R Markdown..." wizard, including one optimized for class assignments and another for publications.
 
 ### Three Output Formats
-Three MLA-style output formats are defined:^[In addition to these MLA-style formats, there's a bonus Chicago-style PDF output defined by `chicago_document`. When using this output format, an optional `chicago` parameter in the YAML header will change the style of citations (`authortitle`, `notes`, etc.).]
+Three MLA-style output formats are defined:
 
 1. `mla_document` prepares a PDF document with MLA-style formatting: text is set in a 12-point serif font face, double-spaced, with running headers, appropriate margins, and [MLA-style citations](https://ctan.org/pkg/biblatex-mla). As an alias to `mla_document`, `pdf_document` does exactly the same thing and is provided to make things easier for anyone with experience and muscle memory from using R Markdown.
 2. `latex_document` exposes the Latex code prepared before the above format. At the moment, this Latex code is pretty kludgey, so the format is provided to help with troubleshooting.
 3. Least recommended of the three, `word_document` sets font faces, sizes, spacing, and margins, but it does not prepare document headers or citations. If you must prepare something in Microsoft Word format---and if you're writing in the humanities, you probably do---it's recommended instead to use the `create_odt` function with the `knit:` parameter in the header, described below.
+
+In addition to these MLA-style formats, there's a bonus Chicago-style PDF output defined by `chicago_document`, for which an optional `chicago` parameter in the YAML header will change the style of citations (`authortitle`, `notes`, etc.).
 
 ### Exporting to Microsoft Word
 
