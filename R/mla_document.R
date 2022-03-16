@@ -33,7 +33,7 @@ word_document <- function(){
 
 mla_document <- function(format="pdf") {
   # locations of resource files in the package
-  pkg_file <- function(...) system.file(..., package = "rmd2mla")
+  pkg_file <- function(...) system.file(..., package = "rmd4mla")
 
   pkg_file_template <- function(...) pkg_file("rmarkdown", "templates", ...)
 
@@ -78,7 +78,7 @@ create_odt <- function(input,
                      clean=TRUE,
                      ...){
   # locations of resource files in the package
-  pkg_file <- function(...) system.file(..., package = "rmd2mla")
+  pkg_file <- function(...) system.file(..., package = "rmd4mla")
 
   pkg_file_template <- function(...) pkg_file("rmarkdown", "templates", ...)
 

@@ -2,12 +2,12 @@
 title: "MLA Class Paper"
 author: ""
 date: "`r gsub('^0', '', format(Sys.time(), '%d %B %Y'))`"
-output: rmd2mla::mla_document
+output: rmd4mla::mla_document
 bibliography: 
 lastname: ""
 professor: ""
 class: ""
-# knit: rmd2mla::create_odt
+# knit: rmd4mla::create_odt
 ---
 
 # Header 1

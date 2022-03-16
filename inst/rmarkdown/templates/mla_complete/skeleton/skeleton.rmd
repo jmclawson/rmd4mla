@@ -1,12 +1,12 @@
 ---
-title: Complete Options for rmd2mla
+title: Complete Options for rmd4mla
 author: James M. Clawson
 date: "`r gsub('^0', '', format(Sys.time(), '%d %B %Y'))`"
 output: 
-  rmd2mla::pdf_document: default
-  rmd2mla::latex_document: default
-  rmd2mla::mla_document: default
-  rmd2mla::word_document: default
+  rmd4mla::pdf_document: default
+  rmd4mla::latex_document: default
+  rmd4mla::mla_document: default
+  rmd4mla::word_document: default
 bibliography: sources.bib
 lastname: Clawson
 # professor: Dr. Jane Smith
@@ -16,13 +16,13 @@ lastname: Clawson
 # telephone: (318)000-000
 # anonymous: false
 # titlepage: false
-knit: rmd2mla::create_odt
+knit: rmd4mla::create_odt
 ---
 
-Bundling together templates and common defaults, the `rmd2mla` package is designed to make it easy to use R Markdown for preparing MLA-formatted documents. The YAML header of this document shows most of the options available to be set, though some of them work better than others. Before knitting a document, save it in a folder dedicated to your project.
+Bundling together templates and common defaults, the `rmd4mla` package is designed to make it easy to use R Markdown for preparing MLA-formatted documents. The YAML header of this document shows most of the options available to be set, though some of them work better than others. Before knitting a document, save it in a folder dedicated to your project.
 
 # Dependencies
-To use this package, you'll need a few things installed and working on your computer ahead of time. First, you'll need a working installation of `R`---which probably goes without saying, if you're contemplating writing with R Markdown. In addition to `R` and the recommended R Studio, you'll need at least six associated packages: `rmarkdown`, `knitr`, `tibble`, `dplyr`, and either `remotes` or `devtools` for installing `rmd2mla` from GitHub.
+To use this package, you'll need a few things installed and working on your computer ahead of time. First, you'll need a working installation of `R`---which probably goes without saying, if you're contemplating writing with R Markdown. In addition to `R` and the recommended R Studio, you'll need at least six associated packages: `rmarkdown`, `knitr`, `tibble`, `dplyr`, and either `remotes` or `devtools` for installing `rmd4mla` from GitHub.
 
 In addition to `R`, you'll need to have a working setup of `Latex`, and it'll probably need to be more full-featured than `TinyTex`. Find something that includes `tex4ht`, `make4ht`, `biblatex`, and [`biblatex-mla`](https://ctan.org/pkg/biblatex-mla?lang=en). I developed and tested the package using an installation of [TexLive 2021](https://www.tug.org/texlive/), along with most recent updates available in late February 2022. It might be necessary to manually change one `make4ht` file for preprocessing `.rmd` files for output as `.odt`, since this change hasn't yet been distributed to the CTAN network; see the [February 28th commit](https://github.com/michal-h21/make4ht/commit/a7ed9e73948ce8fd9749e94bd84a7607cca07f9c) for details.
 
@@ -38,9 +38,9 @@ Of the three, `word_document` is the least satisfying format. Font faces, sizes,
 
 # Exporting to Microsoft Word
 
-A fourth output format is available using the `knit: rmd2mla::create_odt` parameter in the header. When you uncomment this line and knit the document, `rmd2mla` will prepare a file in the OpenDocument `.odt` file format, which can be opened by Microsoft Word. Although this is the recommended pathway for preparing work in Microsoft Word format because it formats the document and uses biblatex-mla for citations and the list of Works Cited, things are not perfect: the resulting file will lack running headers and page numbers, so you'll have to add these manually Additionally, my inelegant code means that the `.odt` file is a bit fragile, so please be sure to use the "Save as..." feature to export the file into `.docx` format.
+A fourth output format is available using the `knit: rmd4mla::create_odt` parameter in the header. When you uncomment this line and knit the document, `rmd4mla` will prepare a file in the OpenDocument `.odt` file format, which can be opened by Microsoft Word. Although this is the recommended pathway for preparing work in Microsoft Word format because it formats the document and uses biblatex-mla for citations and the list of Works Cited, things are not perfect: the resulting file will lack running headers and page numbers, so you'll have to add these manually Additionally, my inelegant code means that the `.odt` file is a bit fragile, so please be sure to use the "Save as..." feature to export the file into `.docx` format.
 
-If you're getting errors in this stage and are having trouble tracking them down, it might be helpful to use `knit: rmd2mla::create_odt_keep`, which will keep all files prepared during this step. (When working with a file called `example.rmd`, the typical behavior will be to delete every file in the project folder named `example.XXX` with a later modification date than the R Markdown file---excepting a few relevant extensions.)
+If you're getting errors in this stage and are having trouble tracking them down, it might be helpful to use `knit: rmd4mla::create_odt_keep`, which will keep all files prepared during this step. (When working with a file called `example.rmd`, the typical behavior will be to delete every file in the project folder named `example.XXX` with a later modification date than the R Markdown file---excepting a few relevant extensions.)
 
 # Header Settings
 In addition to setting the document's title, author, date, and bibliography (of which more below), the R Markdown header adds some additional parameters. The `lastname` parameter defines a running header; if this option is not set, the package will print the title beside the page number. Additionally, for preparing a document as an assignment, there are options for including the name of a `professor` and the name of the `class`. If a manuscript is being prepared for publication, options are provided for `postal` address (bizarrely, only on one line?), `email` address, and `telephone` number. Finally, there are two logical toggles: one to format the document with a `titlepage` and a second to prepare the document for `anonymous` submission; the latter option creates a title page and changes the running header to the document title.
