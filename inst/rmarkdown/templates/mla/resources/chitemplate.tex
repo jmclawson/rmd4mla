@@ -302,7 +302,7 @@ $endif$
 \urlstyle{same} % disable monospaced font for URLs
 \usepackage[american]{babel}
 \usepackage{csquotes}
-$if(chicago)$\usepackage[$chicago$]{biblatex-chicago}$else$\usepackage[notes]{biblatex-chicago}$endif$
+$if(biblio-style)$\usepackage[$biblio-style$]{biblatex-chicago}$else$\usepackage[notes]{biblatex-chicago}$endif$
 \addbibresource{$bibliography$}
 
 $if(lastname)$\headername{$lastname$}$else$\headername{$title$}$endif$
