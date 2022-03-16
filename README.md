@@ -51,7 +51,7 @@ class: English 101
 ---
 ```
 
-The header of the resulting document will be styled like this:
+The header of the resulting PDF document will be styled like this:
 
 <kbd>
   <img src="https://jmclawson.net/rmd4mla_header.png", alt="an image of the top of a PDF document prepared using rmd4mla">
