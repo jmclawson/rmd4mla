@@ -50,4 +50,4 @@ class: English 101
 ---
 ```
 
-To convert to `.odt`, uncomment the final line (remove the `#` and space before `knit:`) and knit the document.
+To convert to `.odt`, uncomment the final line by removing the `# ` before `knit: rmd4mla::create_odt`.
