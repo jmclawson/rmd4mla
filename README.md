@@ -18,7 +18,7 @@ Three MLA-style output formats are defined:
 2. `latex_document` exposes the Latex code prepared before the above format. At the moment, this Latex code is pretty kludgey, so the format is provided to help with troubleshooting.
 3. Least recommended of the three, `word_document` sets font faces, sizes, spacing, and margins, but it does not prepare document headers or citations. If you must prepare something in Microsoft Word format---and if you're writing in the humanities, you probably do---it's recommended instead to use the `create_odt` function with the `knit:` parameter in the header, described below.
 
-In addition to these MLA-style formats, there's a bonus Chicago-style PDF output defined by `chicago_document`, for which an optional `biblio-style` parameter in the YAML header will change the style of citations (`authortitle`, `notes`, etc.).
+In addition to these MLA-style formats, there's a bonus Chicago-style PDF output defined by `chicago_document`, for which an optional `biblio-style` parameter in the YAML header will change the style of citations to one of the options provided by the biblatex-chicago package (`authortitle`, `notes`, etc.).
 
 ### Exporting to Microsoft Word
 
