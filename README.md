@@ -4,9 +4,9 @@ R Markdown templates for MLA-formatted .odt output
 ## Installation
 Use `remotes::install_github("jmclawson/rmd4mla")` to install the R Markdown template file.
 
-In addition to `R`, `rmarkdown`, `knitr`, `tibble`, `dplyr`, and `remotes`, you'll need to have a working setup of `LaTeX`, and it'll probably need to be more full-featured than `TinyTex`: it's necessary to use an installation including `tex4ht`, `make4ht`, `biblatex`, and [`biblatex-mla`](https://ctan.org/pkg/biblatex-mla?lang=en). The package was developed and tested using an installation of [TexLive 2021](https://www.tug.org/texlive/), along with most recent updates available in late February 2022. It might be necessary to manually change one `make4ht` file for preprocessing `.rmd` files for output as `.odt`, since this change may not have been distributed to the CTAN network; see the [February 28th commit](https://github.com/michal-h21/make4ht/commit/a7ed9e73948ce8fd9749e94bd84a7607cca07f9c) for details.
+In addition to `R`, `rmarkdown`, `knitr`, `tibble`, `dplyr`, and `remotes`, you'll need to have a working setup of `LaTeX`. Conversion to OpenDocument requires `tex4ht` and `make4ht`, so you'll probably need more than `TinyTex`. The package was developed and tested using an installation of [TexLive 2021](https://www.tug.org/texlive/), along with most recent updates available in late February 2022. It might be necessary to manually change one `make4ht` file for preprocessing `.Rmd` files for output as `.odt`, since this change may not have been distributed to the CTAN network; see the [February 28th commit](https://github.com/michal-h21/make4ht/commit/a7ed9e73948ce8fd9749e94bd84a7607cca07f9c) for details.
 
-Once these are set up, cross your fingers and proceed. Things work well on my Mac, but something will certainly go wrong on another system. The functions calling `make4ht` may be particularly fragile: they pull together a simple bash command and send it to the system terminal. Who knows whether this will work on Windows---or indeed anywhere outside the limited test environment?
+Once these are set up, cross your fingers and proceed. Things work well on my laptop, but the functions calling `make4ht` have only been tested on this one computer.
 
 ## Description
 Bundling together templates and common defaults, the `rmd4mla` package is designed to make it easy to use R Markdown for preparing MLA-formatted documents. For a quick start, R Markdown templates are provided for use with R Studio's "New File" > "R Markdown..." wizard, including one optimized for class assignments and another for publications.
@@ -14,17 +14,17 @@ Bundling together templates and common defaults, the `rmd4mla` package is design
 ### Three Output Formats
 Three MLA-style output formats are defined:
 
-1. `mla_document` prepares a PDF document with MLA-style formatting: text is set in a 12-point serif font face, double-spaced, with running headers, appropriate margins, and [MLA-style citations](https://ctan.org/pkg/biblatex-mla). As an alias to `mla_document`, `pdf_document` does exactly the same thing and is provided to make things easier for anyone with experience and muscle memory from using R Markdown.
-2. `latex_document` exposes the Latex code prepared before the above format. At the moment, this Latex code is pretty kludgey, so the format is provided to help with troubleshooting.
+1. `mla_document` prepares a PDF document with MLA-style formatting: text is set in a 12-point serif font face, double-spaced, with running headers, appropriate margins, and [MLA-style citations](https://ctan.org/pkg/biblatex-mla). As an alias to `mla_document`, `pdf_document` does exactly the same thing and is provided to make things easier for anyone with R Markdown experience.
+2. `latex_document` exposes the Latex code prepared before the above format. At the moment, this Latex code is kludgey, so the format is provided to help with troubleshooting.
 3. Least recommended of the three, `word_document` sets font faces, sizes, spacing, and margins, but it does not prepare document headers or citations. If you must prepare something in Microsoft Word format---and if you're writing in the humanities, you probably do---it's recommended instead to use the `create_odt` function with the `knit:` parameter in the header, described below.
 
-In addition to these MLA-style formats, there's a bonus Chicago-style PDF output defined by `chicago_document`, for which an optional `biblio-style` parameter in the YAML header will change the style of citations to one of the options provided by the biblatex-chicago package (`authortitle`, `notes`, etc.).
+In addition to these MLA-style formats, there's a bonus Chicago-style PDF output defined by `chicago_document`. This format differs from `mla_document` only in the way it prepares citations.
 
 ### Exporting to Microsoft Word
 
-A final output format is available using the `knit: rmd4mla::create_odt` parameter in the YAML header. This option will prepare a file in the OpenDocument `.odt` file format, which can be opened by Microsoft Word. The resulting file will lack running headers and page numbers, so you'll have to add these manually. This `.odt` file also seems strangely formed, so please open it using LibreOffice, ignoring your computer's prompt to open it in Microsoft Word. From LibreOffice, it can be exported as a `.docx` file.
+Using the `knit: rmd4mla::create_odt` parameter in the YAML header will prepare a file in the OpenDocument `.odt` file format. The resulting file can be opened by LibreOffice and saved as a `.docx` file. Running headers and page numbers will need to be added manually.
 
-When working with a file called `example.Rmd`, the typical behavior of `create_odt` will be to delete nearly every file in the project folder named `example.XXX` if it has a modification date later than the R Markdown file. To keep all of these, instead use `create_odt_keep`.
+When converting a file called `example.Rmd`, `make4ht` creates many extra files along the way, and `create_odt` follows along after it with a broom to clean things up. In doing so, it will delete files in the project folder based on name and modification date, targeting files named `example.XXX` with a modification date later than the R Markdown file. To keep all of these, instead use `create_odt_keep`.
 
 ### YAML Parameters
 In addition to setting the document's title, author, date, and bibliography, the R Markdown header adds additional parameters: 
@@ -36,8 +36,9 @@ In addition to setting the document's title, author, date, and bibliography, the
 - `email` and `telephone` may also be useful for submitting manuscripts.
 - `titlepage` is a logical toggle for shifting the first-page header to a title page.
 - `anonymous` is a logical toggle for adding a title page and changing the running header to use the title.
+- `biblio-style` allows for other Biblatex-provided citation styles to be set. Setting nothing defaults to MLA, but APA and others work well, too. When using `chicago_document` output, this parameter switches among the options provided by the biblatex-chicago package: `authortitle`, `notes`, etc.
 
-Here's an example of some of the parameters in action:
+Here's an example with some typical parameters:
 
 ```
 ---
