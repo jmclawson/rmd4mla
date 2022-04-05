@@ -192,11 +192,8 @@ create_odt <- function(input,
 
     message(paste(delete_me,
                   collapse = "\n"))
-
-    for (i in delete_me) {
-      delete_cmd <- paste0("rm ", i)
-      system(delete_cmd)
-    }
+    
+    unlink(delete_me)
   }
 }
 

@@ -1,5 +1,5 @@
 # rmd4mla
-R Markdown templates for MLA-document formatting and functions for easy Biblatex-compatible OpenDocument exporting.
+R Markdown templates for MLA-document formatting and functions for easy OpenDocument exporting with make4ht.
 
 ## Installation
 Use `remotes::install_github("jmclawson/rmd4mla")` to install the R Markdown template file.
